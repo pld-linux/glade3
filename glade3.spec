@@ -31,39 +31,39 @@ Glade jest narzêdziem typu RAD (Rapid Application Development) do
 szybkiego i wygodnego tworzenia interfejsu u¿ytkownika opartych
 o bibliotekê GTK+ i dla ¶rodowiska biurka GNOME.
 
-%package -n libgladeui                                                                                                          
-Summary:        libgladeui library                                                                                              
-Summary(pl):    Biblioteka libgladeui                                                                                           
-Group:          Libraries                                                                                                     
-                                                                                                                              
-%description -n libgladeui                                                                                                      
-libgladeui library.                                                                                                             
-                                                                                                                              
-%description -n libgladeui -l pl                                                                                                
-Biblioteka libgladeui.                                                                                                          
-                                                                                                                              
-%package -n libgladeui-devel                                                                                                    
-Summary:        Header files for libgladeui library                                                                             
-Summary(pl):    Pliki nag³ówkowe biblioteki libgladeui                                                                          
-Group:          Development/Libraries                                                                                         
-Requires:       libgladeui = %{version}-%{release}                                                                     
-                                                                                                                              
-%description -n libgladeui-devel                                                                                                
-This is the package containing the header files for libgladeui library.                                                         
-                                                                                                                              
-%description -n libgladeui-devel -l pl                                                                                          
-Ten pakiet zawiera pliki nag³ówkowe biblioteki libgladeui.                                                                      
-                                                                                                                              
-%package -n libgladeui-static                                                                                                   
-Summary:        Static libgladeui library                                                                                       
-Summary(pl):    Statyczna biblioteka libgladeui                                                                                 
-Group:          Development/Libraries                                                                                         
-Requires:       libgladeui-devel = %{version}-%{release}                                                               
-                                                                                                                              
-%description -n libgladeui-static                                                                                               
-Static libgladeui library.                                                                                                      
-                                                                                                                              
-%description -n libgladeui-static -l pl                                                                                         
+%package -n libgladeui
+Summary:        libgladeui library
+Summary(pl):    Biblioteka libgladeui
+Group:          Libraries
+
+%description -n libgladeui
+libgladeui library.
+
+%description -n libgladeui -l pl
+Biblioteka libgladeui.
+
+%package -n libgladeui-devel
+Summary:        Header files for libgladeui library
+Summary(pl):    Pliki nag³ówkowe biblioteki libgladeui
+Group:          Development/Libraries
+Requires:       libgladeui = %{version}-%{release}
+
+%description -n libgladeui-devel
+This is the package containing the header files for libgladeui library.
+
+%description -n libgladeui-devel -l pl
+Ten pakiet zawiera pliki nag³ówkowe biblioteki libgladeui.
+
+%package -n libgladeui-static
+Summary:        Static libgladeui library
+Summary(pl):    Statyczna biblioteka libgladeui
+Group:          Development/Libraries
+Requires:       libgladeui-devel = %{version}-%{release}
+
+%description -n libgladeui-static
+Static libgladeui library.
+
+%description -n libgladeui-static -l pl
 Statyczna biblioteka libgladeui.
 
 %package -n libgladeui-apidocs
@@ -114,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 %postun
 %update_icon_cache hicolor
 
-%post   -n libgladeui -p /sbin/ldconfig                                                                                         
+%post   -n libgladeui -p /sbin/ldconfig
 %postun -n libgladeui -p /sbin/ldconfig
 
 %files -f %{name}.lang
