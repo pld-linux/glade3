@@ -1,20 +1,20 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl):	Budowniczy interfejsów dla GTK+ and GNOME
 Name:		glade3
-Version:	3.0.1
+Version:	3.0.2
 Release:	1
 License:	GPL v2+3B
 Group:		Development/Building
 Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	60cd82c76ddfe81533a09854e0656dad
+# Source0-md5:	117dd31c908fd32ad7058c9471e21039
 Patch0:		%{name}-desktop.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.1
-BuildRequires:	libbonoboui-devel >= 2.15.0
-BuildRequires:	libgnomeui-devel >= 2.15.91
+BuildRequires:	gtk+2-devel >= 2:2.10.4
+BuildRequires:	libbonoboui-devel >= 2.16.0
+BuildRequires:	libgnomeui-devel >= 2.16.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
