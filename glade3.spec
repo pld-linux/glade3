@@ -1,5 +1,5 @@
 Summary:	User interface builder for GTK+ and GNOME
-Summary(pl):	Budowniczy interfejsów dla GTK+ and GNOME
+Summary(pl):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.0.2
 Release:	1
