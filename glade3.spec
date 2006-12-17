@@ -1,12 +1,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.0.2
+Version:	3.1.2
 Release:	1
 License:	GPL v2+3B
 Group:		Development/Building
-Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	117dd31c908fd32ad7058c9471e21039
+Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.1/%{name}-%{version}.tar.bz2
+# Source0-md5:	4646ad6f862fb3ecfae14135669b3d1a
 Patch0:		%{name}-desktop.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
@@ -101,6 +101,7 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/modules/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/bindings/*.{a,la}
 
 %find_lang %{name} --all-name --with-gnome
 
@@ -121,6 +122,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/bindings
+%attr(755,root,root) %{_libdir}/%{name}/bindings/*.so
 %dir %{_libdir}/%{name}/modules
 %attr(755,root,root) %{_libdir}/%{name}/modules/*.so
 
