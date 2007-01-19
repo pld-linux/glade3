@@ -1,12 +1,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.1.2
+Version:	3.0.3
 Release:	1
 License:	GPL v2+3B
 Group:		Development/Building
-Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.1/%{name}-%{version}.tar.bz2
-# Source0-md5:	4646ad6f862fb3ecfae14135669b3d1a
+Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.0/%{name}-%{version}.tar.bz2
+# Source0-md5:	1e965bbce1febdb6260a42467c0fd957
 Patch0:		%{name}-desktop.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
@@ -14,9 +14,9 @@ BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.10.4
 BuildRequires:	libbonoboui-devel >= 2.16.0
-BuildRequires:	libgnomeui-devel >= 2.16.0
+BuildRequires:	libgnomeui-devel >= 2.16.1
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires:	libgladeui = %{version}-%{release}
@@ -101,7 +101,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/modules/*.{a,la}
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/bindings/*.{a,la}
 
 %find_lang %{name} --all-name --with-gnome
 
@@ -122,11 +121,8 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
-%dir %{_libdir}/%{name}/bindings
-%attr(755,root,root) %{_libdir}/%{name}/bindings/*.so
 %dir %{_libdir}/%{name}/modules
 %attr(755,root,root) %{_libdir}/%{name}/modules/*.so
-
 %{_datadir}/%{name}
 %{_desktopdir}/glade-3.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
