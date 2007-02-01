@@ -1,12 +1,12 @@
-diff -aurN glade3-3.0.0.orig/glade-3.desktop.in glade3-3.0.0/glade-3.desktop.in
---- glade3-3.0.0.orig/glade-3.desktop.in	2006-08-12 03:18:59.000000000 +0200
-+++ glade3-3.0.0/glade-3.desktop.in	2006-08-12 08:49:39.889828081 +0200
+diff -urN glade3-3.1.4/glade-3.desktop.in glade3-3.1.4.new/glade-3.desktop.in
+--- glade3-3.1.4/glade-3.desktop.in	2006-12-07 18:44:09.000000000 +0100
++++ glade3-3.1.4.new/glade-3.desktop.in	2007-02-01 12:50:51.971414723 +0100
 @@ -8,7 +8,7 @@
  StartupNotify=true
  Type=Application
  Icon=glade-3
--Categories=Application;Development;
+-Categories=GTK;Application;Development;
 +Categories=GTK;GNOME;Development;GUIDesigner;
  MimeType=application/x-glade;
+ X-GNOME-DocPath=glade/glade.xml
  X-GNOME-Bugzilla-Bugzilla=GNOME
- X-GNOME-Bugzilla-Product=glade3
