@@ -1,5 +1,5 @@
 Summary:	User interface builder for GTK+ and GNOME
-Summary(pl.UTF-8):   Budowniczy interfejsów dla GTK+ i GNOME
+Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.0.3
 Release:	1
@@ -33,7 +33,7 @@ o bibliotekę GTK+ i dla środowiska biurka GNOME.
 
 %package -n libgladeui
 Summary:	libgladeui library
-Summary(pl.UTF-8):   Biblioteka libgladeui
+Summary(pl.UTF-8):	Biblioteka libgladeui
 Group:		Libraries
 
 %description -n libgladeui
@@ -44,7 +44,7 @@ Biblioteka libgladeui.
 
 %package -n libgladeui-devel
 Summary:	Header files for libgladeui library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki libgladeui
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgladeui
 Group:		Development/Libraries
 Requires:	libgladeui = %{version}-%{release}
 
@@ -56,7 +56,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki libgladeui.
 
 %package -n libgladeui-static
 Summary:	Static libgladeui library
-Summary(pl.UTF-8):   Statyczna biblioteka libgladeui
+Summary(pl.UTF-8):	Statyczna biblioteka libgladeui
 Group:		Development/Libraries
 Requires:	libgladeui-devel = %{version}-%{release}
 
@@ -68,7 +68,7 @@ Statyczna biblioteka libgladeui.
 
 %package -n libgladeui-apidocs
 Summary:	libgladeui API documentation
-Summary(pl.UTF-8):   Dokumentacja API libgladeui
+Summary(pl.UTF-8):	Dokumentacja API libgladeui
 Group:		Documentation
 Requires:	gtk-doc-common
 
