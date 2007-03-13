@@ -1,24 +1,30 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.0.3
+Version:	3.2.0
 Release:	1
 License:	GPL v2+3B
 Group:		Development/Building
-Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.0/%{name}-%{version}.tar.bz2
-# Source0-md5:	1e965bbce1febdb6260a42467c0fd957
+Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.2/%{name}-%{version}.tar.bz2
+# Source0-md5:	bee0aeb66b29ac40b24d9413aace15cc
 Patch0:		%{name}-desktop.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.10.4
-BuildRequires:	libbonoboui-devel >= 2.16.0
-BuildRequires:	libgnomeui-devel >= 2.16.1
+BuildRequires:	gtk+2-devel >= 2:2.10.10
+BuildRequires:	gtk-doc >= 1.7
+BuildRequires:	libbonoboui-devel >= 2.18.0
+BuildRequires:	libgnomeui-devel >= 2.18.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.27
 BuildRequires:	pkgconfig
+BuildRequires:	python-pygtk-devel >= 2:2.10.4
 BuildRequires:	rpmbuild(macros) >= 1.311
+Requires(post,postun):	desktop-file-utils
+Requires(post,postun):	gtk+2
+Requires(post,postun):	hicolor-icon-theme
+Requires(post,postun):	scrollkeeper
 Requires:	libgladeui = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,8 +34,8 @@ interfaces for the GTK+ toolkit and the GNOME desktop environment.
 
 %description -l pl.UTF-8
 Glade jest narzędziem typu RAD (Rapid Application Development) do
-szybkiego i wygodnego tworzenia interfejsu użytkownika opartych
-o bibliotekę GTK+ i dla środowiska biurka GNOME.
+szybkiego i wygodnego tworzenia interfejsu użytkownika opartych o
+bibliotekę GTK+ i dla środowiska biurka GNOME.
 
 %package -n libgladeui
 Summary:	libgladeui library
@@ -49,7 +55,8 @@ Group:		Development/Libraries
 Requires:	libgladeui = %{version}-%{release}
 
 %description -n libgladeui-devel
-This is the package containing the header files for libgladeui library.
+This is the package containing the header files for libgladeui
+library.
 
 %description -n libgladeui-devel -l pl.UTF-8
 Ten pakiet zawiera pliki nagłówkowe biblioteki libgladeui.
@@ -84,13 +91,15 @@ Dokumentacja API libgladeui.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 %configure \
 	--enable-gtk-doc \
+	--enable-user-manual \
 	--with-html-dir=%{_gtkdocdir} \
+	--disable-scrollkeeper \
 	--enable-static
 %{__make}
 
@@ -100,7 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/modules/*.{a,la}
+rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/{bindings,modules}/*.{a,la}
 
 %find_lang %{name} --all-name --with-gnome
 
@@ -108,9 +117,13 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/%{name}/modules/*.{a,la}
 rm -rf $RPM_BUILD_ROOT
 
 %post
+%scrollkeeper_update_post
+%update_desktop_database_post
 %update_icon_cache hicolor
 
 %postun
+%scrollkeeper_update_postun
+%update_desktop_database_postun
 %update_icon_cache hicolor
 
 %post	-n libgladeui -p /sbin/ldconfig
@@ -121,11 +134,15 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
+%dir %{_libdir}/%{name}/bindings
 %dir %{_libdir}/%{name}/modules
+%attr(755,root,root) %{_libdir}/%{name}/bindings/libgladepython.so
 %attr(755,root,root) %{_libdir}/%{name}/modules/*.so
+%{_omf_dest_dir}/glade
 %{_datadir}/%{name}
 %{_desktopdir}/glade-3.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/*/apps/*.svg
 
 %files -n libgladeui
 %defattr(644,root,root,755)
