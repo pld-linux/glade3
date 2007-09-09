@@ -1,12 +1,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.2.2
+Version:	3.3.4
 Release:	1
 License:	GPL v2+3B
 Group:		Development/Building
-Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	07f24fed99e424988964d6b2d77d5ba7
+Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.3/%{name}-%{version}.tar.bz2
+# Source0-md5:	c9e27733fd9540d4b3ab3f6472c06a9c
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
@@ -132,9 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS NEWS README TODO ChangeLog
 %attr(755,root,root) %{_bindir}/*
 %dir %{_libdir}/%{name}
-%dir %{_libdir}/%{name}/bindings
 %dir %{_libdir}/%{name}/modules
-%attr(755,root,root) %{_libdir}/%{name}/bindings/libgladepython.so
 %attr(755,root,root) %{_libdir}/%{name}/modules/*.so
 %{_omf_dest_dir}/glade
 %{_datadir}/%{name}
