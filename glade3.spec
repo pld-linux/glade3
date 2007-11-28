@@ -11,6 +11,7 @@ URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
 BuildRequires:	gettext-devel
+BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.10.11
 BuildRequires:	gtk-doc >= 1.8
 BuildRequires:	libbonoboui-devel >= 2.20.0
