@@ -1,12 +1,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.4.0
+Version:	3.4.1
 Release:	1
 License:	GPL v2+3B
 Group:		Development/Building
 Source0:	http://ftp.gnome.org/pub/gnome/sources/glade3/3.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	7d9354a92d3d95417d1e2d0bc3ebf4f5
+# Source0-md5:	daf9f1f343e6fe46016421b1fa3e433f
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake
