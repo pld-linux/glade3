@@ -1,12 +1,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.4.5
-Release:	2
+Version:	3.5.6
+Release:	1
 License:	GPL v2+3B
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	39924af2e97f55f0a159f930ee4acb1c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.5/%{name}-%{version}.tar.bz2
+# Source0-md5:	e97402d6066526c398b3112a36846e8c
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake >= 1:1.9
@@ -148,7 +148,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n libgladeui
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgladeui-1.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgladeui-1.so.7
+%attr(755,root,root) %ghost %{_libdir}/libgladeui-1.so.9
 
 %files -n libgladeui-devel
 %defattr(644,root,root,755)
