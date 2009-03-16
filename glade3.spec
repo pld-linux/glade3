@@ -1,26 +1,27 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.4.5
-Release:	2
+Version:	3.6.0
+Release:	1
 License:	GPL v2+3B
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	39924af2e97f55f0a159f930ee4acb1c
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	e88341bc6da4b9b3bd07b6873bde7d8e
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common
 BuildRequires:	gnome-doc-utils >= 0.12.2
-BuildRequires:	gtk+2-devel >= 2:2.12.8
-BuildRequires:	gtk-doc >= 1.8
-BuildRequires:	intltool >= 0.36.2
-BuildRequires:	libbonoboui-devel >= 2.22.0
-BuildRequires:	libgnomeui-devel >= 2.22.0
+BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk-doc >= 1.9
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libbonoboui-devel >= 2.24.0
+BuildRequires:	libgnomeui-devel >= 2.24.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
+BuildRequires:	python-pygtk-devel >= 2:2.14.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
@@ -54,7 +55,7 @@ Biblioteka libgladeui.
 Summary:	Header files for libgladeui library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgladeui
 Group:		Development/Libraries
-Requires:	gtk+2-devel >= 2:2.12.8
+Requires:	gtk+2-devel >= 2:2.16.0
 Requires:	libgladeui = %{version}-%{release}
 Requires:	libxml2-devel >= 1:2.6.31
 
@@ -140,6 +141,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}/modules
 %attr(755,root,root) %{_libdir}/%{name}/modules/libgladegnome.so
 %attr(755,root,root) %{_libdir}/%{name}/modules/libgladegtk.so
+%attr(755,root,root) %{_libdir}/%{name}/modules/libgladepython.so
 %{_datadir}/%{name}
 %{_desktopdir}/glade-3.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
@@ -148,7 +150,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n libgladeui
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgladeui-1.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgladeui-1.so.7
+%attr(755,root,root) %ghost %{_libdir}/libgladeui-1.so.9
 
 %files -n libgladeui-devel
 %defattr(644,root,root,755)
