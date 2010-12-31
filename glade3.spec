@@ -2,11 +2,12 @@ Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.6.7
-Release:	4
+Release:	5
 License:	GPL v2+3B
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.6/%{name}-%{version}.tar.bz2
 # Source0-md5:	0fbe06e4babb2adeaf9725577ff43395
+Patch0:		lib64.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake >= 1:1.9
@@ -93,6 +94,7 @@ Dokumentacja API libgladeui.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__gtkdocize}
@@ -102,6 +104,8 @@ Dokumentacja API libgladeui.
 %{__autoheader}
 %{__automake}
 %configure \
+	PYTHON_LIBS="-lpython" \
+	PYTHON_LIB_LOC="%{_libdir}" \
 	--enable-gtk-doc \
 	--enable-user-manual \
 	--with-html-dir=%{_gtkdocdir} \
