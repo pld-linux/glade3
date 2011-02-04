@@ -2,7 +2,7 @@ Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.6.7
-Release:	5
+Release:	6
 License:	GPL v2+3B
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.6/%{name}-%{version}.tar.bz2
@@ -27,7 +27,7 @@ BuildRequires:	python-pygtk-devel >= 2:2.14.0
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 Requires(post,postun):	desktop-file-utils
-Requires(post,postun):	gtk+2
+Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
 Requires(post,postun):	scrollkeeper
 Requires:	libgladeui = %{version}-%{release}
