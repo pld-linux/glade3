@@ -2,7 +2,7 @@ Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.6.7
-Release:	7
+Release:	8
 License:	GPL v2+3B
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.6/%{name}-%{version}.tar.bz2
@@ -119,7 +119,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/%{name}/{bindings,modules}/*.{a,la} \
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/glade3/modules/*.{a,la} \
 	$RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --all-name --with-gnome --with-omf
