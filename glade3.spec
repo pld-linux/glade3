@@ -1,12 +1,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.6.7
-Release:	8
+Version:	3.8.1
+Release:	1
 License:	GPL v2+3B
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	0fbe06e4babb2adeaf9725577ff43395
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	217e037954f1704c863d092853938ac6
 Patch0:		lib64.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
@@ -15,7 +15,7 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common
 BuildRequires:	gnome-doc-utils >= 0.12.2
-BuildRequires:	gtk+2-devel >= 2:2.16.0
+BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libbonoboui-devel >= 2.24.0
@@ -57,7 +57,7 @@ Biblioteka libgladeui.
 Summary:	Header files for libgladeui library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgladeui
 Group:		Development/Libraries
-Requires:	gtk+2-devel >= 2:2.16.0
+Requires:	gtk+2-devel >= 2:2.24.0
 Requires:	libgladeui = %{version}-%{release}
 Requires:	libxml2-devel >= 1:2.6.31
 
@@ -157,7 +157,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -n libgladeui
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgladeui-1.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgladeui-1.so.9
+%attr(755,root,root) %ghost %{_libdir}/libgladeui-1.so.11
 
 %files -n libgladeui-devel
 %defattr(644,root,root,755)

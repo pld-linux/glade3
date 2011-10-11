@@ -1,6 +1,6 @@
---- glade3-3.6.7/configure.ac.wiget	2010-12-31 15:33:50.326562908 +0100
-+++ glade3-3.6.7/configure.ac	2010-12-31 15:51:21.633744170 +0100
-@@ -249,6 +249,9 @@ AC_SUBST([AM_CFLAGS])
+--- glade3-3.8.1/configure.ac.wiget	2011-10-11 15:21:34.643197406 +0200
++++ glade3-3.8.1/configure.ac	2011-10-11 15:28:48.139676382 +0200
+@@ -254,6 +254,9 @@ AC_SUBST([AM_CFLAGS])
  AC_SUBST([AM_CXXFLAGS])
  AC_SUBST([AM_LDFLAGS])
  
@@ -10,14 +10,18 @@
  AC_CONFIG_FILES([
  Makefile
  data/gladeui-1.0.pc
---- glade3-3.6.7/gladeui/glade-utils.c.wiget	2010-12-31 15:30:35.934282540 +0100
-+++ glade3-3.6.7/gladeui/glade-utils.c	2010-12-31 15:31:41.439362633 +0100
-@@ -1473,7 +1473,7 @@ GModule *
- glade_util_load_library (const gchar *library_name)
+--- glade3-3.8.1/gladeui/glade-utils.c.wiget	2011-10-11 15:20:40.998190129 +0200
++++ glade3-3.8.1/gladeui/glade-utils.c	2011-10-11 15:21:08.850662304 +0200
+@@ -1519,9 +1519,9 @@ glade_util_load_library (const gchar *li
  {
+ 	gchar        *default_paths[] = { (gchar *)glade_app_get_modules_dir (), 
+ 					  NULL, /* <-- dynamically allocated */ 
+-					  "/lib", 
+-					  "/usr/lib", 
+-					  "/usr/local/lib", 
++					  "/" LIB, 
++					  "/usr/" LIB, 
++					  "/usr/local/" LIB, 
+ 					  NULL };
+ 
  	GModule      *module = NULL;
--	const gchar  *default_paths[] = { glade_app_get_modules_dir (), "/lib", "/usr/lib", "/usr/local/lib", NULL };
-+	const gchar  *default_paths[] = { glade_app_get_modules_dir (), "/" LIB, "/usr/" LIB, "/usr/local/" LIB, NULL };
- 	const gchar  *search_path;
- 	gchar       **split;
- 	gint          i;
