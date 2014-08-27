@@ -1,9 +1,15 @@
+# TODO: gnome and python modules to subpackages?
+#
+# Conditional build:
+%bcond_without	gnome	# GNOME catalog support
+%bcond_without	python	# Python catalog support
+#
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.8.5
 Release:	1
-License:	GPL v2+3B
+License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.8/%{name}-%{version}.tar.xz
 # Source0-md5:	4e4b4f5ee34a03e017e4cef97d796c1f
@@ -18,12 +24,12 @@ BuildRequires:	gnome-doc-utils >= 0.12.2
 BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
-BuildRequires:	libbonoboui-devel >= 2.24.0
-BuildRequires:	libgnomeui-devel >= 2.24.0
+%{?with_gnome:BuildRequires:	libbonoboui-devel >= 2.24.0}
+%{?with_gnome:BuildRequires:	libgnomeui-devel >= 2.24.0}
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.31
 BuildRequires:	pkgconfig
-BuildRequires:	python-pygtk-devel >= 2:2.14.0
+%{?with_python:BuildRequires:	python-pygtk-devel >= 2:2.14.0}
 BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	tar >= 1:1.22
@@ -45,20 +51,22 @@ szybkiego i wygodnego tworzenia interfejsu użytkownika opartych o
 bibliotekę GTK+ i dla środowiska biurka GNOME.
 
 %package -n libgladeui
-Summary:	libgladeui library
-Summary(pl.UTF-8):	Biblioteka libgladeui
-Group:		Libraries
+Summary:	libgladeui - Glade interface designer library
+Summary(pl.UTF-8):	Biblioteka libgladeui do projektowania interfejsu Glade
+Group:		X11/Libraries
+Requires:	gtk+2 >= 2:2.24.0
+Requires:	libxml2 >= 1:2.6.31
 
 %description -n libgladeui
-libgladeui library.
+libgladeui - Glade interface designer library.
 
 %description -n libgladeui -l pl.UTF-8
-Biblioteka libgladeui.
+Biblioteka libgladeui do projektowania interfejsu Glade.
 
 %package -n libgladeui-devel
 Summary:	Header files for libgladeui library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgladeui
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	gtk+2-devel >= 2:2.24.0
 Requires:	libgladeui = %{version}-%{release}
 Requires:	libxml2-devel >= 1:2.6.31
@@ -73,7 +81,7 @@ Ten pakiet zawiera pliki nagłówkowe biblioteki libgladeui.
 %package -n libgladeui-static
 Summary:	Static libgladeui library
 Summary(pl.UTF-8):	Statyczna biblioteka libgladeui
-Group:		Development/Libraries
+Group:		X11/Development/Libraries
 Requires:	libgladeui-devel = %{version}-%{release}
 
 %description -n libgladeui-static
@@ -108,11 +116,13 @@ Dokumentacja API libgladeui.
 %configure \
 	PYTHON_LIBS="-lpython" \
 	PYTHON_LIB_LOC="%{_libdir}" \
+	%{!?with_gnome:--disable-gnome} \
 	--enable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir} \
+	%{!?with_python:--disable-python} \
 	--disable-scrollkeeper \
+	--disable-silent-rules \
 	--enable-static \
-	--disable-silent-rules
+	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
 %install
@@ -144,17 +154,22 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README TODO ChangeLog
+# COPYING contains just general notes (license texts are in COPYING.{GPL,LGPL})
+%doc AUTHORS COPYING ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/glade-3
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/modules
+%if %{with gnome}
 %attr(755,root,root) %{_libdir}/%{name}/modules/libgladegnome.so
+%endif
 %attr(755,root,root) %{_libdir}/%{name}/modules/libgladegtk.so
+%if %{with python}
 %attr(755,root,root) %{_libdir}/%{name}/modules/libgladepython.so
+%endif
 %{_datadir}/%{name}
 %{_desktopdir}/glade-3.desktop
-%{_iconsdir}/hicolor/*/apps/*.png
-%{_iconsdir}/hicolor/*/apps/*.svg
+%{_iconsdir}/hicolor/*/apps/glade-3.png
+%{_iconsdir}/hicolor/*/apps/glade-3.svg
 
 %files -n libgladeui
 %defattr(644,root,root,755)
