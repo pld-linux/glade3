@@ -18,7 +18,7 @@ URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-common
 BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	gtk-doc >= 1.9
