@@ -3,12 +3,12 @@
 # Conditional build:
 %bcond_without	gnome	# GNOME catalog support
 %bcond_without	python	# Python catalog support
-#
+
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
 Version:	3.8.5
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.8/%{name}-%{version}.tar.xz
@@ -95,6 +95,9 @@ Summary:	libgladeui API documentation
 Summary(pl.UTF-8):	Dokumentacja API libgladeui
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description -n libgladeui-apidocs
 libgladeui API documentation.
