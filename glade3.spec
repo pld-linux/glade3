@@ -7,12 +7,12 @@
 Summary:	User interface builder for GTK+ and GNOME
 Summary(pl.UTF-8):	Budowniczy interfejsów dla GTK+ i GNOME
 Name:		glade3
-Version:	3.8.5
-Release:	3
+Version:	3.8.6
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/glade3/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	4e4b4f5ee34a03e017e4cef97d796c1f
+# Source0-md5:	c16756952967f7316d64593124761027
 Patch0:		lib64.patch
 URL:		http://glade.gnome.org/
 BuildRequires:	autoconf >= 2.59-9
@@ -20,7 +20,6 @@ BuildRequires:	automake >= 1:1.9
 BuildRequires:	docbook-dtd412-xml
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-common
-BuildRequires:	gnome-doc-utils >= 0.12.2
 BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	gtk-doc >= 1.9
 BuildRequires:	intltool >= 0.40.0
@@ -34,6 +33,7 @@ BuildRequires:	rpmbuild(find_lang) >= 1.23
 BuildRequires:	rpmbuild(macros) >= 1.311
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+BuildRequires:	yelp-tools
 Requires(post,postun):	desktop-file-utils
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	hicolor-icon-theme
